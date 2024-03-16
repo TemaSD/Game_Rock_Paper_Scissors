@@ -235,7 +235,21 @@ namespace Game_Rock_Paper_Scissors
             }
         }
 
+        //Player Name Enter
+        private static void PlayerNameEnter(ref string playerName)
+        {
+            Console.Write("Enter your nickname: ");
+            playerName = Console.ReadLine();
 
+            if (playerName.Length > 20)
+            {
+                Console.Write("Your name is too long! Enter a shorter nickname: ");
+                playerName = Console.ReadLine();
+            }
+            if (playerName == "")
+                playerName = "Player";
+            return;
+        }
 
 
         //PlayerStats
@@ -314,7 +328,7 @@ namespace Game_Rock_Paper_Scissors
         }
 
         // Game
-        private static int GameStart(string playerName)
+        private static void GameStart(string playerName, int playerAge, ref int roundsPlayed, ref int gamesWon)
         {
             int round = 1;
             int playerWon = 0;
@@ -351,6 +365,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
 
                             }
@@ -361,6 +376,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
                             }
                             if (computerWeapon == 3) //vs cissors
@@ -370,6 +386,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
                             }
                         }
@@ -384,6 +401,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
 
                             }
@@ -393,6 +411,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
                             }
                             if (computerWeapon == 3) //vs scissors
@@ -402,6 +421,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
                             }
                         }
@@ -416,6 +436,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
                             }
                             if (computerWeapon == 2) //vs paper
@@ -425,6 +446,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
 
                             }
@@ -434,6 +456,7 @@ namespace Game_Rock_Paper_Scissors
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
                                 GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                roundsPlayed++;
                                 round++;
                             }
                         }
@@ -446,14 +469,16 @@ namespace Game_Rock_Paper_Scissors
             //Player won?
             if (playerWon > computerWon)
             {
+                gamesWon++;
                 Console.Clear();
                 YouWonLogo();
                 RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerWin(playerName);
+                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press 'Enter' to continue...");
                 Console.ReadKey();
-                return round - 1;
+                return;
             }
             else if (playerWon == computerWon)
             {
@@ -461,10 +486,11 @@ namespace Game_Rock_Paper_Scissors
                 GameOverLogo();
                 RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerLose(playerName);
+                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press 'Enter' to continue...");
                 Console.ReadKey();
-                return round - 1;
+                return;
             }
             else
             {
@@ -472,10 +498,11 @@ namespace Game_Rock_Paper_Scissors
                 YouLoseLogo();
                 RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerLose(playerName);
+                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press 'Enter' to continue...");
                 Console.ReadKey();
-                return round - 1;
+                return;
             }
 
         }
@@ -484,13 +511,14 @@ namespace Game_Rock_Paper_Scissors
         public static void Main(string[] args)
         {
             GameLogo();
-            Console.Write("Enter your nickname:");
-            string playerName = Console.ReadLine();
-            if (playerName == "")
-                playerName = "Player";
-            
+
             int roundsPlayed = 0;
             int gamesWon = 0;
+
+            string playerName = "Player";
+            PlayerNameEnter(ref playerName);
+
+
 
             Console.Write("Enter your age:");
             int playerAge = int.Parse(Console.ReadLine());
@@ -502,7 +530,7 @@ namespace Game_Rock_Paper_Scissors
 
             //Console.Write("Want to start the game? yes/no:");
             //Console.ReadLine();
-            GameStart(playerName);
+            GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
         }
     }
 }
