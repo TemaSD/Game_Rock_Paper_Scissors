@@ -43,35 +43,36 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine(@"                        \____/ |___/_____/_/ |_|  ");
             Console.WriteLine();
         }
-        // Round 1 Graph
-        private static void Round1Logo()
+        // Round Graph
+        private static void RoundLogo(int round)
         {
-            Console.WriteLine(@"    ____                        __        ___");
-            Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    <  /");
-            Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   / / ");
-            Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / /  ");
-            Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /_/   ");
-            Console.WriteLine();
-        }
-        // Round 2 Graph
-        private static void Round2Logo()
-        {
-            Console.WriteLine(@"    ____                        __        ___ ");
-            Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__ \");
-            Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   __/ /");
-            Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / __/ ");
-            Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/ ");
-            Console.WriteLine();
-        }
-        // Round 3 Graph
-        private static void Round3Logo()
-        {
-            Console.WriteLine(@"    ____                        __        _____");
-            Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__  /");
-            Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)    /_ < ");
-            Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     ___/ / ");
-            Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/  ");
-            Console.WriteLine();
+            if (round == 1)
+            {
+                Console.WriteLine(@"    ____                        __        ___");
+                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    <  /");
+                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   / / ");
+                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / /  ");
+                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /_/   ");
+                Console.WriteLine();
+            }
+            if (round == 2)
+            {
+                Console.WriteLine(@"    ____                        __        ___ ");
+                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__ \");
+                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   __/ /");
+                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / __/ ");
+                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/ ");
+                Console.WriteLine();
+            }
+            if (round == 3)
+            {
+                Console.WriteLine(@"    ____                        __        _____");
+                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__  /");
+                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)    /_ < ");
+                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     ___/ / ");
+                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/  ");
+                Console.WriteLine();
+            }
         }
         // You Won Graph
         private static void YouWonLogo()
@@ -94,11 +95,6 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine(@"/_____/_____/_/   /_____/_/  |_/_/     ");
             Console.WriteLine();
         }
-
-
-
-
-
 
         //PlayerStats
         private static void PlayerStats(string playerName, int playerAge, int roundsPlayed, int gamesWon)
@@ -151,6 +147,12 @@ namespace Game_Rock_Paper_Scissors
             if (randomText == 3)
                 Console.WriteLine($"You lose, but next time you will win!");
         }
+        // Round Score Board
+        private static void RoundScoreBoard(string playerName, int playerWon, int computerWon)
+        {
+            Console.WriteLine($"<<< {playerName} {playerWon} : {computerWon} Computer >>>");
+            Console.WriteLine();
+        }
 
         // Age Check
         private static void AgeCheck(string playerName, int playerAge)
@@ -170,8 +172,160 @@ namespace Game_Rock_Paper_Scissors
         }
 
         // Game
-        private static void GameStart()
+        private static void GameStart(string playerName)
         {
+            int round = 1;
+            int playerWon = 0;
+            int computerWon = 0;
+
+            while (round<=3)
+            {
+                Console.Clear();
+                RoundLogo(round);
+                RoundScoreBoard(playerName, playerWon, computerWon);
+                Console.WriteLine("Select weapon:");
+
+                int playerWeapon = int.Parse(Console.ReadLine());
+                int computerWeapon = ComputerAi();
+
+                if (playerWeapon > 3 || playerWeapon < 1)
+                    continue;
+
+                switch (playerWeapon)
+                {
+                    case 1: //Player selected Rock
+                        {
+                            if (computerWeapon == 1)
+                            {
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Rock'");
+                                Console.WriteLine($"Computer selected 'Rock'");
+                                Console.WriteLine($"Game Draw");
+                                round++;
+
+                            }
+                            if (computerWeapon == 2)
+                            {
+                                computerWon++;
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Rock'");
+                                Console.WriteLine($"Computer selected 'Paper'");
+                                Console.WriteLine($"You Lose");
+                                round++;
+                            }
+                            if (computerWeapon == 3)
+                            {
+                                playerWon++;
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Rock'");
+                                Console.WriteLine($"Computer selected 'Scissors'");
+                                Console.WriteLine($"You Win");
+                                round++;
+                            }
+                        }
+                        break;
+
+                    case 2: //Player selected Paper
+                        {
+                            if (computerWeapon == 1)
+                            {
+                                playerWon++;
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Paper'");
+                                Console.WriteLine($"Computer selected 'Rock'");
+                                Console.WriteLine($"You Win");
+                                round++;
+
+                            }
+                            if (computerWeapon == 2)
+                            {
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Paper'");
+                                Console.WriteLine($"Computer selected 'Paper'");
+                                Console.WriteLine($"Game Draw");
+                                round++;
+                            }
+                            if (computerWeapon == 3)
+                            {
+                                computerWon++;
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Paper'");
+                                Console.WriteLine($"Computer selected 'Scissors'");
+                                Console.WriteLine($"You Lose");
+                                round++;
+                            }
+                        }
+                        break;
+
+                    case 3: //Player selected Scissors
+                        {
+                            if (computerWeapon == 1)
+                            {
+                                computerWon++;
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Scissors'");
+                                Console.WriteLine($"Computer selected 'Rock'");
+                                Console.WriteLine($"You Lose");
+                                round++;
+                            }
+                            if (computerWeapon == 2)
+                            {
+                                playerWon++;
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Scissors'");
+                                Console.WriteLine($"Computer selected 'Paper'");
+                                Console.WriteLine($"You Win");
+                                round++;
+
+                            }
+                            if (computerWeapon == 3)
+                            {
+                                Console.Clear();
+                                RoundLogo(round);
+                                RoundScoreBoard(playerName, playerWon, computerWon);
+                                Console.WriteLine($"You selected 'Scissors'");
+                                Console.WriteLine($"Computer selected 'Scissors'");
+                                Console.WriteLine($"Game Draw");
+                                round++;
+                            }
+                        }
+                        break;
+                }
+                Console.Write("Press 'Enter' to continue...");
+                Console.ReadKey();
+            }
+
+            //Player won?
+            if (playerWon > computerWon)
+            {
+                Console.Clear();
+                YouWonLogo();
+                RoundScoreBoard(playerName, playerWon, computerWon);
+                TextPlayerWin(playerName);
+            }
+            else
+            {
+                Console.Clear();
+                YouLoseLogo();
+                RoundScoreBoard(playerName, playerWon, computerWon);
+                TextPlayerLose(playerName);
+            }
 
         }
 
@@ -197,7 +351,7 @@ namespace Game_Rock_Paper_Scissors
 
             //Console.Write("Want to start the game? yes/no:");
             //Console.ReadLine();
-            GameStart();
+            GameStart(playerName);
         }
     }
 }
