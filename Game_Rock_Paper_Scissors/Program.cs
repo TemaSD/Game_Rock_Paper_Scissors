@@ -7,24 +7,16 @@ namespace Game_Rock_Paper_Scissors
         // Logo
         private static void GameLogo()
         {
-            Console.WriteLine(@"__________ ________  _________  ____  __.   ");
-            Console.WriteLine(@"\______   \\_____  \ \_   ___ \|    |/ _|   ");
-            Console.WriteLine(@" |       _/ /   |   \/    \  \/|      <     ");
-            Console.WriteLine(@" |    |   \/    |    \     \___|    |  \    ");
-            Console.WriteLine(@" |____|_  /\_______  /\______  /____|__ \ /\");
-            Console.WriteLine(@"        \/         \/        \/        \/ )/");
-            Console.WriteLine(@"__________  _____ _______________________________    ");
-            Console.WriteLine(@"\______   \/  _  \\______   \_   _____/\______   \   ");
-            Console.WriteLine(@" |     ___/  /_\  \|     ___/|    __)_  |       _/   ");
-            Console.WriteLine(@" |    |  /    |    \    |    |        \ |    |   \   ");
-            Console.WriteLine(@" |____|  \____|__  /____|   /_______  / |____|_  / /\");
-            Console.WriteLine(@"                 \/                 \/         \/  )/");
-            Console.WriteLine(@"  __________________ .___  _________ _________________ __________  _________");
-            Console.WriteLine(@" /   _____/\_   ___ \|   |/   _____//   _____/\_____  \\______   \/   _____/");
-            Console.WriteLine(@" \_____  \ /    \  \/|   |\_____  \ \_____  \  /   |   \|       _/\_____  \ ");
-            Console.WriteLine(@" /        \\     \___|   |/        \/        \/    |    \    |   \/        \");
-            Console.WriteLine(@"/_______  / \______  /___/_______  /_______  /\_______  /____|_  /_______  /");
-            Console.WriteLine(@"        \/         \/            \/        \/         \/       \/        \/");
+            Console.WriteLine(@"    ____  ____  ________ __                                ");
+            Console.WriteLine(@"   / __ \/ __ \/ ____/ //_/  ____  ___    ____  __________ ");
+            Console.WriteLine(@"  / /_/ / / / / /   / ,<    / __ \/   |  / __ \/ ____/ __ \");
+            Console.WriteLine(@" / _, _/ /_/ / /___/ /| |_ / /_/ / /| | / /_/ / __/ / /_/ /");
+            Console.WriteLine(@"/_/ |_|\____/\____/_/ |_( ) ____/ ___ |/ ____/ /___/ _, _/ ");
+            Console.WriteLine(@"   _____ _______________|/_/_ _/_/  |_/_/ __/_____/_/ |_( )");
+            Console.WriteLine(@"  / ___// ____/  _/ ___/ ___// __ \/ __ \/ ___/         |/ ");
+            Console.WriteLine(@"  \__ \/ /    / / \__ \\__ \/ / / / /_/ /\__ \             ");
+            Console.WriteLine(@" ___/ / /____/ / ___/ /__/ / /_/ / _, _/___/ /             ");
+            Console.WriteLine(@"/____/\____/___//____/____/\____/_/ |_|/____/              ");
             Console.WriteLine();
         }
 
@@ -81,6 +73,30 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/  ");
             Console.WriteLine();
         }
+        // You Won Graph
+        private static void YouWonLogo()
+        {
+            Console.WriteLine(@"__  __                                 ");
+            Console.WriteLine(@"\ \/ /___  __  ___       ______  _   __");
+            Console.WriteLine(@" \  / __ \/ / / / |     / / __ \/ | / /");
+            Console.WriteLine(@" / / /_/ / /_/ /| | /| / / / / /  |/ / ");
+            Console.WriteLine(@"/_/\____/\__,_/ | |/ |/ / /_/ / /|  /  ");
+            Console.WriteLine(@"                |__/|__/\____/_/ |_/   ");
+            Console.WriteLine();
+        }
+        // You Lose Graph
+        private static void YouLoseLogo()
+        {
+            Console.WriteLine(@"    ____  _____________________  ______");
+            Console.WriteLine(@"   / __ \/ ____/ ____/ ____/   |/_  __/");
+            Console.WriteLine(@"  / / / / __/ / /_  / __/ / /| | / /   ");
+            Console.WriteLine(@" / /_/ / /___/ __/ / /___/ ___ |/ /    ");
+            Console.WriteLine(@"/_____/_____/_/   /_____/_/  |_/_/     ");
+            Console.WriteLine();
+        }
+
+
+
 
 
 
@@ -146,7 +162,10 @@ namespace Game_Rock_Paper_Scissors
                 Console.WriteLine("=========================================================");
                 Console.WriteLine($"Sorry, {playerName}, this game can be played from 12 years old.");
                 Console.WriteLine("=========================================================");
-                Console.ReadLine();
+                Console.WriteLine();
+                Console.WriteLine("To Exit press 'Enter'...");
+                Console.ReadKey(); 
+                Environment.Exit(0);
             }
         }
 
@@ -162,7 +181,9 @@ namespace Game_Rock_Paper_Scissors
             GameLogo();
             Console.Write("Enter your nickname:");
             string playerName = Console.ReadLine();
-
+            if (playerName == "")
+                playerName = "Player";
+            
             int roundsPlayed = 0;
             int gamesWon = 0;
 
