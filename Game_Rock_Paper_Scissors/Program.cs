@@ -136,7 +136,27 @@ namespace Game_Rock_Paper_Scissors
                 Console.WriteLine($"You lose, but next time you will win!");
         }
 
-        //Game
+        // Age Check
+        private static void AgeCheck(string playerName, int playerAge)
+        {
+            if(playerAge < 12)
+            {
+                Console.Clear();
+                GameOverLogo();
+                Console.WriteLine("=========================================================");
+                Console.WriteLine($"Sorry, {playerName}, this game can be played from 12 years old.");
+                Console.WriteLine("=========================================================");
+                Console.ReadLine();
+            }
+        }
+
+        // Game
+        private static void GameStart()
+        {
+
+        }
+
+        //Main Menu
         public static void Main(string[] args)
         {
             GameLogo();
@@ -148,25 +168,15 @@ namespace Game_Rock_Paper_Scissors
 
             Console.Write("Enter your age:");
             int playerAge = int.Parse(Console.ReadLine());
+            AgeCheck(playerName, playerAge);
 
-            if(playerAge >= 12)
-            {
-                Console.Clear();
-                StartLogo();
-                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
+            Console.Clear();
+            StartLogo();
+            PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
 
-                Console.Write("Want to start the game? yes/no:");
-                Console.ReadLine();
-            }
-            else
-            {
-                Console.Clear();
-                GameOverLogo();
-                Console.WriteLine("=========================================================");
-                Console.WriteLine($"Sorry, {playerName}, this game can be played from 12 years old.");
-                Console.WriteLine("=========================================================");
-            }
-
+            //Console.Write("Want to start the game? yes/no:");
+            //Console.ReadLine();
+            GameStart();
         }
     }
 }
