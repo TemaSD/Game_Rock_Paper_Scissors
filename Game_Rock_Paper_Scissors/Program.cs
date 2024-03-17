@@ -19,18 +19,6 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine(@"/____/\____/___//____/____/\____/_/ |_|/____/              ");
             Console.WriteLine();
         }
-
-        // Start Logo
-        //private static void StartLogo()
-        //{
-        //    Console.WriteLine(@"   ______________    ____  ______");
-        //    Console.WriteLine(@"  / ___/_  __/   |  / __ \/_  __/");
-        //    Console.WriteLine(@"  \__ \ / / / /| | / /_/ / / /   ");
-        //    Console.WriteLine(@" ___/ // / / ___ |/ _, _/ / /    ");
-        //    Console.WriteLine(@"/____//_/ /_/  |_/_/ |_| /_/     ");
-        //    Console.WriteLine();
-        //}
-
         // Game Over Logo
         private static void GameOverLogo()
         {
