@@ -402,7 +402,7 @@ namespace Game_Rock_Paper_Scissors
         private static void GameExit(string playerName)
         {
             Console.Clear();
-            GameLogo();
+            GameOverLogo();
             Console.WriteLine("===============================================");
             Console.WriteLine($"Good bye, {playerName}! Hope you come back soon!");
             Console.WriteLine("===============================================");
