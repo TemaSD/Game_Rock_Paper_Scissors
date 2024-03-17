@@ -293,7 +293,7 @@ namespace Game_Rock_Paper_Scissors
                 Console.WriteLine($"Sorry, {playerName}, this game can be played from 12 years old.");
                 Console.WriteLine("=========================================================");
                 Console.WriteLine();
-                Console.WriteLine("To Exit press any key ...");
+                Console.WriteLine("Press any key to exit the game...");
                 Console.ReadKey(); 
                 Environment.Exit(0);
             }
@@ -331,16 +331,28 @@ namespace Game_Rock_Paper_Scissors
         //Game menu text
         private static void GameMenuText()
         {
-            Console.WriteLine("===============================================");
             Console.WriteLine("<<< Menu >>>");
             Console.WriteLine("1. New Game");
             Console.WriteLine("2. Credits");
             Console.WriteLine("3. Exit");
             Console.WriteLine("===============================================");
             Console.WriteLine();
-            Console.Write("Write 1, 2 or 3 to choose, then press 'Enter': ");
-            Console.WriteLine();
         }
+        //Game exit
+        private static void GameExit(string playerName)
+        {
+            Console.Clear();
+            GameLogo();
+            Console.WriteLine("===============================================");
+            Console.WriteLine($"Good bye, {playerName}! Hope you come back soon!");
+            Console.WriteLine("===============================================");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit the game...");
+            Console.ReadKey();
+            Environment.Exit(0);
+        }
+
+
 
         // AI
         private static int ComputerAi()
@@ -586,14 +598,36 @@ namespace Game_Rock_Paper_Scissors
 
             EnterYourAge(playerName, ref playerAge);
 
-            Console.Clear();
-            GameLogo();
-            PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
-            GameMenuText();
+            while (true)
+            {
+                int menuSelect = 0;
 
-            //Console.Write("Want to start the game? yes/no:");
-            Console.ReadKey();
-            GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
+                Console.Clear();
+                GameLogo();
+                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
+                GameMenuText();
+
+                Console.Write("Write 1, 2 or 3 to choose, then press 'Enter': ");
+                menuSelect = int.Parse(Console.ReadLine());
+
+                if (menuSelect == 3) //Exit
+                    break;
+                else if (menuSelect == 2) //Credits
+                {
+                    GameCredits();
+                    continue;
+                }
+                else if (menuSelect == 1) //Play Game
+                {
+                    GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
+                    continue;
+                }
+                else
+                    continue;
+
+            }
+
+            GameExit(playerName);
         }
     }
 }
