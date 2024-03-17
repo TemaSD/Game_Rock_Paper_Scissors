@@ -21,15 +21,15 @@ namespace Game_Rock_Paper_Scissors
         }
 
         // Start Logo
-        private static void StartLogo()
-        {
-            Console.WriteLine(@"   ______________    ____  ______");
-            Console.WriteLine(@"  / ___/_  __/   |  / __ \/_  __/");
-            Console.WriteLine(@"  \__ \ / / / /| | / /_/ / / /   ");
-            Console.WriteLine(@" ___/ // / / ___ |/ _, _/ / /    ");
-            Console.WriteLine(@"/____//_/ /_/  |_/_/ |_| /_/     ");
-            Console.WriteLine();
-        }
+        //private static void StartLogo()
+        //{
+        //    Console.WriteLine(@"   ______________    ____  ______");
+        //    Console.WriteLine(@"  / ___/_  __/   |  / __ \/_  __/");
+        //    Console.WriteLine(@"  \__ \ / / / /| | / /_/ / / /   ");
+        //    Console.WriteLine(@" ___/ // / / ___ |/ _, _/ / /    ");
+        //    Console.WriteLine(@"/____//_/ /_/  |_/_/ |_| /_/     ");
+        //    Console.WriteLine();
+        //}
 
         // Game Over Logo
         private static void GameOverLogo()
@@ -96,7 +96,7 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine();
         }
         //Graphic cases
-        private static void GameGraphicCase(string playerName, int playerWeapon, int computerWeapon)
+        private static void GameGraphicCase(int playerWeapon, int computerWeapon)
         {
             switch (playerWeapon)
             {
@@ -109,11 +109,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)                         (____   '-");
                             Console.WriteLine(@"    (_____)                       (_____)    ");
-                            Console.WriteLine(@"    (_____)        |DRAW|         (_____)    ");
+                            Console.WriteLine(@"YOU (_____)        |DRAW|         (_____)    ");
                             Console.WriteLine(@"    (____)                         (____)    ");
                             Console.WriteLine(@"-.__(___)                           (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}                         Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -124,11 +123,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)                     ____(____   '-");
                             Console.WriteLine(@"    (_____)                   (______        ");
-                            Console.WriteLine(@"    (_____)       <LOSE>     (______         ");
+                            Console.WriteLine(@"YOU (_____)       <LOSE>     (______         ");
                             Console.WriteLine(@"    (____)                    (______        ");
                             Console.WriteLine(@"-.__(___)                       (__________.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}                         Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -139,11 +137,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)                     ____(____   '-");
                             Console.WriteLine(@"    (_____)                   (______        ");
-                            Console.WriteLine(@"    (_____)        >WIN<     (__________     ");
+                            Console.WriteLine(@"YOU (_____)        >WIN<     (__________     ");
                             Console.WriteLine(@"    (____)                         (____)    ");
                             Console.WriteLine(@"-.__(___)                           (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}                         Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -159,11 +156,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                     (____   '-");
                             Console.WriteLine(@"        ______)                   (_____)    ");
-                            Console.WriteLine(@"         ______)     >WIN<        (_____)    ");
+                            Console.WriteLine(@"YOU      ______)     >WIN<        (_____)    ");
                             Console.WriteLine(@"        ______)                    (____)    ");
                             Console.WriteLine(@"-.__________)                       (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}                         Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -174,11 +170,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"         ______)    |DRAW|   (______         ");
+                            Console.WriteLine(@"YOU      ______)    |DRAW|   (______         ");
                             Console.WriteLine(@"        ______)               (______        ");
                             Console.WriteLine(@"-.__________)                   (__________.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}                         Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -189,11 +184,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"         ______)    <LOSE>   (__________     ");
+                            Console.WriteLine(@"YOU      ______)    <LOSE>   (__________     ");
                             Console.WriteLine(@"        ______)                    (____)    ");
                             Console.WriteLine(@"-.__________)                       (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}:                        Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -209,11 +203,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                     (____   '-");
                             Console.WriteLine(@"        ______)                   (_____)    ");
-                            Console.WriteLine(@"     __________)    <LOSE>        (_____)    ");
+                            Console.WriteLine(@"YOU  __________)    <LOSE>        (_____)    ");
                             Console.WriteLine(@"    (____)                         (____)    ");
                             Console.WriteLine(@"-.__(___)                           (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}                         Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -224,11 +217,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"     __________)    >WIN<    (______         ");
+                            Console.WriteLine(@"YOU   __________)    >WIN<    (______         ");
                             Console.WriteLine(@"    (____)                    (______        ");
                             Console.WriteLine(@"-.__(___)                       (__________.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}                         Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -239,11 +231,10 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"     __________)    |DRAW|   (__________     ");
+                            Console.WriteLine(@"YOU  __________)    |DRAW|   (__________     ");
                             Console.WriteLine(@"    (____)                         (____)    ");
                             Console.WriteLine(@"-.__(___)                           (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}                         Computer");
                             Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
@@ -302,10 +293,27 @@ namespace Game_Rock_Paper_Scissors
                 Console.WriteLine($"Sorry, {playerName}, this game can be played from 12 years old.");
                 Console.WriteLine("=========================================================");
                 Console.WriteLine();
-                Console.WriteLine("To Exit press 'Enter'...");
+                Console.WriteLine("To Exit press any key ...");
                 Console.ReadKey(); 
                 Environment.Exit(0);
             }
+        }
+
+        //Credits
+        private static void GameCredits()
+        {
+            Console.Clear();
+            GameLogo();
+            Console.WriteLine("===============================================");
+            Console.WriteLine("                 * * * ");
+            Console.WriteLine("     Created by Artem Shupa-Dubrova ");
+            Console.WriteLine("                 * * * ");
+            Console.WriteLine("The game was created as part of the Unity ");
+            Console.WriteLine("Game Development course by Varto School (Ukraine) ");
+            Console.WriteLine("===============================================");
+            Console.WriteLine();
+            Console.WriteLine("To go back press any key ...");
+            Console.ReadKey();
         }
 
         //PlayerStats
@@ -317,6 +325,20 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine($"Rounds played: {roundsPlayed}");
             Console.WriteLine($"Games won: {gamesWon}");
             Console.WriteLine("===============================================");
+            Console.WriteLine();
+        }
+
+        //Game menu text
+        private static void GameMenuText()
+        {
+            Console.WriteLine("===============================================");
+            Console.WriteLine("<<< Menu >>>");
+            Console.WriteLine("1. New Game");
+            Console.WriteLine("2. Credits");
+            Console.WriteLine("3. Exit");
+            Console.WriteLine("===============================================");
+            Console.WriteLine();
+            Console.Write("Write 1, 2 or 3 to choose, then press 'Enter': ");
             Console.WriteLine();
         }
 
@@ -404,7 +426,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
 
@@ -415,7 +437,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
                             }
@@ -425,7 +447,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
                             }
@@ -440,7 +462,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
 
@@ -450,7 +472,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
                             }
@@ -460,7 +482,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
                             }
@@ -475,7 +497,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
                             }
@@ -485,7 +507,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
 
@@ -495,7 +517,7 @@ namespace Game_Rock_Paper_Scissors
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerName, playerWeapon, computerWeapon);
+                                GameGraphicCase(playerWeapon, computerWeapon);
                                 roundsPlayed++;
                                 round++;
                             }
@@ -503,7 +525,7 @@ namespace Game_Rock_Paper_Scissors
                         break;
                 }
                 Console.WriteLine();
-                Console.Write("Press 'Enter' to continue...");
+                Console.Write("Press any key to continue...");
                 Console.ReadKey();
             }
 
@@ -517,7 +539,7 @@ namespace Game_Rock_Paper_Scissors
                 TextPlayerWin(playerName);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
-                Console.Write("Press 'Enter' to continue...");
+                Console.Write("Press any key to continue...");
                 Console.ReadKey();
                 return;
             }
@@ -529,7 +551,7 @@ namespace Game_Rock_Paper_Scissors
                 TextPlayerLose(playerName);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
-                Console.Write("Press 'Enter' to continue...");
+                Console.Write("Press any key to continue...");
                 Console.ReadKey();
                 return;
             }
@@ -541,14 +563,14 @@ namespace Game_Rock_Paper_Scissors
                 TextPlayerLose(playerName);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
-                Console.Write("Press 'Enter' to continue...");
+                Console.Write("Press any key to continue...");
                 Console.ReadKey();
                 return;
             }
 
         }
 
-        //Main Menu
+        //Main
         public static void Main(string[] args)
         {
             GameLogo();
@@ -567,6 +589,7 @@ namespace Game_Rock_Paper_Scissors
             Console.Clear();
             GameLogo();
             PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
+            GameMenuText();
 
             //Console.Write("Want to start the game? yes/no:");
             Console.ReadKey();
