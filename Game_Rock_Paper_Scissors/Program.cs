@@ -104,41 +104,47 @@ namespace Game_Rock_Paper_Scissors
                     {
                         if (computerWeapon == 1)
                         {
-                            Console.WriteLine("   'Rock'      |DRAW|      'Rock' ");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)             (____   '-");
-                            Console.WriteLine(@"    (_____)           (_____)    ");
-                            Console.WriteLine(@"    (_____)           (_____)    ");
-                            Console.WriteLine(@"    (____)             (____)    ");
-                            Console.WriteLine(@"-.__(___)               (___)__.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine("   'Rock'                              'Rock' ");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)                         (____   '-");
+                            Console.WriteLine(@"    (_____)                       (_____)    ");
+                            Console.WriteLine(@"    (_____)        |DRAW|         (_____)    ");
+                            Console.WriteLine(@"    (____)                         (____)    ");
+                            Console.WriteLine(@"-.__(___)                           (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"{playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}                         Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                         if (computerWeapon == 2)
                         {
-                            Console.WriteLine("   'Rock'     <LOSE>      'Paper'");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)         ____(____   '-");
-                            Console.WriteLine(@"    (_____)       (______        ");
-                            Console.WriteLine(@"    (_____)      (______         ");
-                            Console.WriteLine(@"    (____)        (______        ");
-                            Console.WriteLine(@"-.__(___)           (__________.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine("   'Rock'                              'Paper'");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)                     ____(____   '-");
+                            Console.WriteLine(@"    (_____)                   (______        ");
+                            Console.WriteLine(@"    (_____)       <LOSE>     (______         ");
+                            Console.WriteLine(@"    (____)                    (______        ");
+                            Console.WriteLine(@"-.__(___)                       (__________.-");
                             Console.WriteLine();
-                            Console.WriteLine($"{playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}                         Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                         if (computerWeapon == 3)
                         {
-                            Console.WriteLine("   'Rock'      >WIN<     'Scissors'");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)         ____(____   '-");
-                            Console.WriteLine(@"    (_____)       (______        ");
-                            Console.WriteLine(@"    (_____)      (__________     ");
-                            Console.WriteLine(@"    (____)             (____)    ");
-                            Console.WriteLine(@"-.__(___)               (___)__.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine("   'Rock'                           'Scissors'");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)                     ____(____   '-");
+                            Console.WriteLine(@"    (_____)                   (______        ");
+                            Console.WriteLine(@"    (_____)        >WIN<     (__________     ");
+                            Console.WriteLine(@"    (____)                         (____)    ");
+                            Console.WriteLine(@"-.__(___)                           (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"{playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}                         Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                     }
@@ -148,41 +154,47 @@ namespace Game_Rock_Paper_Scissors
                     {
                         if (computerWeapon == 1)
                         {
-                            Console.WriteLine("   'Paper'       >WIN<      'Rock'");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)____         (____   '-");
-                            Console.WriteLine(@"        ______)       (_____)    ");
-                            Console.WriteLine(@"         ______)      (_____)    ");
-                            Console.WriteLine(@"        ______)        (____)    ");
-                            Console.WriteLine(@"-.__________)           (___)__.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine("   'Paper'                              'Rock'");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)____                     (____   '-");
+                            Console.WriteLine(@"        ______)                   (_____)    ");
+                            Console.WriteLine(@"         ______)     >WIN<        (_____)    ");
+                            Console.WriteLine(@"        ______)                    (____)    ");
+                            Console.WriteLine(@"-.__________)                       (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}                         Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                         if (computerWeapon == 2)
                         {
-                            Console.WriteLine("   'Paper'      |DRAW|       'Paper'");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)____     ____(____   '-");
-                            Console.WriteLine(@"        ______)   (______        ");
-                            Console.WriteLine(@"         ______) (______         ");
-                            Console.WriteLine(@"        ______)   (______        ");
-                            Console.WriteLine(@"-.__________)       (__________.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine("   'Paper'                             'Paper'");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)____                 ____(____   '-");
+                            Console.WriteLine(@"        ______)               (______        ");
+                            Console.WriteLine(@"         ______)    |DRAW|   (______         ");
+                            Console.WriteLine(@"        ______)               (______        ");
+                            Console.WriteLine(@"-.__________)                   (__________.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}                         Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                         if (computerWeapon == 3)
                         {
-                            Console.WriteLine("   'Paper'      <LOSE>     'Scissors'");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)____     ____(____   '-");
-                            Console.WriteLine(@"        ______)   (______        ");
-                            Console.WriteLine(@"         ______) (__________     ");
-                            Console.WriteLine(@"        ______)        (____)    ");
-                            Console.WriteLine(@"-.__________)           (___)__.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine("   'Paper'                          'Scissors'");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)____                 ____(____   '-");
+                            Console.WriteLine(@"        ______)               (______        ");
+                            Console.WriteLine(@"         ______)    <LOSE>   (__________     ");
+                            Console.WriteLine(@"        ______)                    (____)    ");
+                            Console.WriteLine(@"-.__________)                       (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}:                        Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                     }
@@ -192,47 +204,68 @@ namespace Game_Rock_Paper_Scissors
                     {
                         if (computerWeapon == 1)
                         {
-                            Console.WriteLine(" 'Scissors'     <LOSE>      'Rock'");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)____         (____   '-");
-                            Console.WriteLine(@"        ______)       (_____)    ");
-                            Console.WriteLine(@"     __________)      (_____)    ");
-                            Console.WriteLine(@"    (____)             (____)    ");
-                            Console.WriteLine(@"-.__(___)               (___)__.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine(" 'Scissors'                             'Rock'");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)____                     (____   '-");
+                            Console.WriteLine(@"        ______)                   (_____)    ");
+                            Console.WriteLine(@"     __________)    <LOSE>        (_____)    ");
+                            Console.WriteLine(@"    (____)                         (____)    ");
+                            Console.WriteLine(@"-.__(___)                           (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}                         Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                         if (computerWeapon == 2)
                         {
-                            Console.WriteLine(" 'Scissors'     >WIN<      'Paper'");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)____     ____(____   '-");
-                            Console.WriteLine(@"        ______)   (______        ");
-                            Console.WriteLine(@"     __________) (______         ");
-                            Console.WriteLine(@"    (____)        (______        ");
-                            Console.WriteLine(@"-.__(___)           (__________.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine(" 'Scissors'                            'Paper'");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)____                 ____(____   '-");
+                            Console.WriteLine(@"        ______)               (______        ");
+                            Console.WriteLine(@"     __________)    >WIN<    (______         ");
+                            Console.WriteLine(@"    (____)                    (______        ");
+                            Console.WriteLine(@"-.__(___)                       (__________.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}                         Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                         if (computerWeapon == 3)
                         {
-                            Console.WriteLine(" 'Scissors'    |DRAW|   'Scissors'");
-                            Console.WriteLine(@"  _______               _______  ");
-                            Console.WriteLine(@"-'   ____)____     ____(____   '-");
-                            Console.WriteLine(@"        ______)   (______        ");
-                            Console.WriteLine(@"     __________) (__________     ");
-                            Console.WriteLine(@"    (____)             (____)    ");
-                            Console.WriteLine(@"-.__(___)               (___)__.-");
+                            Console.WriteLine("===============================================");
+                            Console.WriteLine(" 'Scissors'                         'Scissors'");
+                            Console.WriteLine(@"  _______                           _______  ");
+                            Console.WriteLine(@"-'   ____)____                 ____(____   '-");
+                            Console.WriteLine(@"        ______)               (______        ");
+                            Console.WriteLine(@"     __________)    |DRAW|   (__________     ");
+                            Console.WriteLine(@"    (____)                         (____)    ");
+                            Console.WriteLine(@"-.__(___)                           (___)__.-");
                             Console.WriteLine();
-                            Console.WriteLine($"   {playerName}:           Computer:");
+                            Console.WriteLine($"   {playerName}                         Computer");
+                            Console.WriteLine("===============================================");
                             Console.WriteLine();
                         }
                     }
                     break;
 
             }
+        }
+
+        //Welcome Text
+        private static void WelcomeText()
+        {
+            Console.WriteLine("===============================================");
+            Console.WriteLine($"Welcome to the ROCK, PAPER, SCISSORS game!");
+            Console.WriteLine("===============================================");
+            Console.WriteLine("Rules:");
+            Console.WriteLine("* The game lasts a maximum of three rounds");
+            Console.WriteLine("* The winner must win more rounds than opponent");
+            Console.WriteLine("* Each round you choose a weapon");
+            Console.WriteLine("* 'Paper' beats 'Rock','Rock' beats 'Scissors', 'Scissors' beats 'Paper'");
+            Console.WriteLine("* Have fun!");
+            Console.WriteLine("===============================================");
         }
 
         //Player Name Enter
@@ -346,12 +379,12 @@ namespace Game_Rock_Paper_Scissors
                 Console.Clear();
                 RoundLogo(round);
                 RoundScoreBoard(playerName, playerWon, computerWon);
-                Console.WriteLine("=========================================================");
+                Console.WriteLine("===============================================");
                 Console.WriteLine("Choose your weapon:");
                 Console.WriteLine("1. Rock");
                 Console.WriteLine("2. Paper");
                 Console.WriteLine("3. Scissors");
-                Console.WriteLine("=========================================================");
+                Console.WriteLine("===============================================");
                 Console.WriteLine();
                 Console.Write("Write 1, 2 or 3 to choose weapon, then press 'Enter': ");
 
@@ -469,6 +502,7 @@ namespace Game_Rock_Paper_Scissors
                         }
                         break;
                 }
+                Console.WriteLine();
                 Console.Write("Press 'Enter' to continue...");
                 Console.ReadKey();
             }
@@ -519,6 +553,8 @@ namespace Game_Rock_Paper_Scissors
         {
             GameLogo();
 
+            WelcomeText();
+
             string playerName = "Player";
             int playerAge = 0;
             int roundsPlayed = 0;
@@ -529,11 +565,11 @@ namespace Game_Rock_Paper_Scissors
             EnterYourAge(playerName, ref playerAge);
 
             Console.Clear();
-            StartLogo();
+            GameLogo();
             PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
 
             //Console.Write("Want to start the game? yes/no:");
-            //Console.ReadLine();
+            Console.ReadKey();
             GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
         }
     }
