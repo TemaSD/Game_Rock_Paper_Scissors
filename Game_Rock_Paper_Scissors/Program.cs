@@ -448,7 +448,7 @@ namespace Game_Rock_Paper_Scissors
                 {
                     case 1: //Player selected Rock
                         {
-                            if (computerWeapon == 1) //vs rock
+                            if (computerWeapon == 1) //vs rock = draw
                             {
                                 Console.Clear();
                                 RoundLogo(round);
@@ -458,7 +458,7 @@ namespace Game_Rock_Paper_Scissors
                                 round++;
 
                             }
-                            if (computerWeapon == 2) //vs paper
+                            if (computerWeapon == 2) //vs paper = lose
                             {
                                 computerWon++;
                                 Console.Clear();
@@ -468,7 +468,7 @@ namespace Game_Rock_Paper_Scissors
                                 roundsPlayed++;
                                 round++;
                             }
-                            if (computerWeapon == 3) //vs cissors
+                            if (computerWeapon == 3) //vs cissors = win
                             {
                                 playerWon++;
                                 Console.Clear();
@@ -483,7 +483,7 @@ namespace Game_Rock_Paper_Scissors
 
                     case 2: //Player selected Paper
                         {
-                            if (computerWeapon == 1) //vs rock
+                            if (computerWeapon == 1) //vs rock = win
                             {
                                 playerWon++;
                                 Console.Clear();
@@ -494,7 +494,7 @@ namespace Game_Rock_Paper_Scissors
                                 round++;
 
                             }
-                            if (computerWeapon == 2) //vs paper
+                            if (computerWeapon == 2) //vs paper = draw
                             {
                                 Console.Clear();
                                 RoundLogo(round);
@@ -503,7 +503,7 @@ namespace Game_Rock_Paper_Scissors
                                 roundsPlayed++;
                                 round++;
                             }
-                            if (computerWeapon == 3) //vs scissors
+                            if (computerWeapon == 3) //vs scissors = lose
                             {
                                 computerWon++;
                                 Console.Clear();
@@ -518,7 +518,7 @@ namespace Game_Rock_Paper_Scissors
 
                     case 3: //Player selected Scissors
                         {
-                            if (computerWeapon == 1) //vs rock
+                            if (computerWeapon == 1) //vs rock = lose
                             {
                                 computerWon++;
                                 Console.Clear();
@@ -528,7 +528,7 @@ namespace Game_Rock_Paper_Scissors
                                 roundsPlayed++;
                                 round++;
                             }
-                            if (computerWeapon == 2) //vs paper
+                            if (computerWeapon == 2) //vs paper = win
                             {
                                 playerWon++;
                                 Console.Clear();
@@ -539,7 +539,7 @@ namespace Game_Rock_Paper_Scissors
                                 round++;
 
                             }
-                            if (computerWeapon == 3) //vs scissors
+                            if (computerWeapon == 3) //vs scissors = draw
                             {
                                 Console.Clear();
                                 RoundLogo(round);
