@@ -356,11 +356,11 @@ namespace Game_Rock_Paper_Scissors
             Console.Clear();
             GameLogo();
             Console.WriteLine("===============================================");
-            Console.WriteLine("                 * * * ");
-            Console.WriteLine("     Created by Artem Shupa-Dubrova ");
-            Console.WriteLine("                 * * * ");
-            Console.WriteLine("The game was created as part of the Unity ");
-            Console.WriteLine("Game Development course by Varto School (Ukraine) ");
+            Console.WriteLine("                    * * * ");
+            Console.WriteLine("        Created by Artem Shupa-Dubrova ");
+            Console.WriteLine("                    * * * ");
+            Console.WriteLine("Developed during my Unity Game Development course ");
+            Console.WriteLine("           at Varto School (Ukraine).");
             Console.WriteLine("===============================================");
             Console.WriteLine();
             Console.WriteLine("To go back press any key ...");
