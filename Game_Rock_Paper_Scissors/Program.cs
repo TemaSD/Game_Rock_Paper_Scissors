@@ -415,14 +415,15 @@ namespace Game_Rock_Paper_Scissors
             if (randomText == 3)
                 Console.WriteLine($"You lose, but next time you will win!");
         }
-        // Round Score Board
+
+        // Every Round Score Board
         private static void RoundScoreBoard(string playerName, int playerWon, int computerWon)
         {
             Console.WriteLine($"<<< {playerName} {playerWon} : {computerWon} Computer >>>");
             Console.WriteLine();
         }
 
-        // Over All Score Board
+        // After Game Score Board
         private static void OverallScoreBoard(string playerName, string[] playerWinArray, string[] playerChoiceArray, string[] computerChoiceArray)
         {
             Console.WriteLine("===============================================");
@@ -496,7 +497,7 @@ namespace Game_Rock_Paper_Scissors
                             if (computerWeapon == 3)
                             {
                                 computerChoiceArray[round] = "Scissors";
-                                playerWinArray[round] = "  WIN!  ";
+                                playerWinArray[round] = " >WIN!< ";
                                 playerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
@@ -515,7 +516,7 @@ namespace Game_Rock_Paper_Scissors
                             if (computerWeapon == 1)
                             {
                                 computerChoiceArray[round] = "  Rock  ";
-                                playerWinArray[round] = "  WIN!  ";
+                                playerWinArray[round] = " >WIN!< ";
                                 playerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
@@ -570,7 +571,7 @@ namespace Game_Rock_Paper_Scissors
                             if (computerWeapon == 2)
                             {
                                 computerChoiceArray[round] = "  Paper ";
-                                playerWinArray[round] = "  WIN!  ";
+                                playerWinArray[round] = " >WIN!< ";
                                 playerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
