@@ -253,7 +253,7 @@ namespace Game_Rock_Paper_Scissors
             Console.Write("Enter your nickname: ");
             playerName = Console.ReadLine();
 
-            while (playerName.Length > 20)
+            while (playerName.Length > 16)
             {
                 Console.Write("Your name is too long! Enter a shorter nickname: ");
                 playerName = Console.ReadLine();
@@ -265,27 +265,30 @@ namespace Game_Rock_Paper_Scissors
         // Enter Your Age
         private static void EnterYourAge(string playerName, ref int playerAge)
         {
-            Console.Write("Enter your age:");
-            playerAge = int.Parse(Console.ReadLine());
+            while (playerAge <= 0 || playerAge > 120)
+            {
+                Console.Write("Enter your age: ");
+                int.TryParse(Console.ReadLine(), out playerAge);
+                continue;
+            }
 
-            while (playerAge > 120)
-            {
-                Console.Write("Enter your real age: ");
-                playerAge = int.Parse(Console.ReadLine());
-            }
             if (playerAge < 12)
-            {
-                Console.Clear();
-                GameOverLogo();
-                Console.WriteLine("=========================================================");
-                Console.WriteLine($"Sorry, {playerName}, this game can be played from 12 years old.");
-                Console.WriteLine("=========================================================");
-                Console.WriteLine();
-                Console.WriteLine("Press any key to exit the game...");
-                Console.ReadKey();
-                Environment.Exit(0);
-            }
+                WrongAge(playerName);
         }
+        // Wrong Age
+        private static void WrongAge(string playerName)
+        {
+            Console.Clear();
+            GameOverLogo();
+            Console.WriteLine("=========================================================");
+            Console.WriteLine($"Sorry, {playerName}, this game can be played from 12 years old.");
+            Console.WriteLine("=========================================================");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit the game...");
+            Console.ReadKey();
+            Environment.Exit(0);
+        }
+
         //Tutorial Menu
         private static void GameTutorial()
         {
@@ -464,7 +467,9 @@ namespace Game_Rock_Paper_Scissors
                 RoundMenu();
                 Console.Write("Type 1, 2 or 3 to choose weapon, then press 'Enter': ");
 
-                int playerWeapon = int.Parse(Console.ReadLine());
+                int playerWeapon;
+
+                int.TryParse(Console.ReadLine(), out playerWeapon);
 
                 if (playerWeapon > 3 || playerWeapon < 1)
                     continue;
@@ -642,7 +647,7 @@ namespace Game_Rock_Paper_Scissors
 
             while (true)
             {
-                int menuSelect = 0;
+                int menuSelect;
 
                 Console.Clear();
                 GameLogo();
@@ -650,7 +655,7 @@ namespace Game_Rock_Paper_Scissors
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
 
                 Console.Write("Type 1, 2, 3 or 4 to choose, then press 'Enter': ");
-                menuSelect = int.Parse(Console.ReadLine());
+                int.TryParse(Console.ReadLine(), out menuSelect);
 
                 if (menuSelect == 4) //Exit
                     break;
