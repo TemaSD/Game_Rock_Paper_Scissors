@@ -253,9 +253,9 @@ namespace Game_Rock_Paper_Scissors
             Console.Write("Enter your nickname: ");
             playerName = Console.ReadLine();
 
-            while (playerName.Length > 16)
+            while (playerName.Length > 12)
             {
-                Console.Write("Your name is too long! Enter a shorter nickname: ");
+                Console.Write("Your name is too long! Enter a shorter nickname (12 symbols Max): ");
                 playerName = Console.ReadLine();
             }
             if (playerName == "")
@@ -422,6 +422,19 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine();
         }
 
+        // Over All Score Board
+        private static void OverallScoreBoard(string playerName, string[] playerWinArray, string[] playerChoiceArray, string[] computerChoiceArray)
+        {
+            Console.WriteLine("===============================================");
+            Console.WriteLine($"           {playerName}                 Computer");
+            Console.WriteLine();
+            Console.WriteLine($"Round 1:   {playerChoiceArray[1]}   {playerWinArray[1]}   {computerChoiceArray[1]}");
+            Console.WriteLine();
+            Console.WriteLine($"Round 2:   {playerChoiceArray[2]}   {playerWinArray[2]}   {computerChoiceArray[2]}");
+            Console.WriteLine();
+            Console.WriteLine($"Round 3:   {playerChoiceArray[3]}   {playerWinArray[3]}   {computerChoiceArray[3]}");
+            Console.WriteLine();
+        }
 
         // Game
         private static void GameStart(string playerName, int playerAge, ref int roundsPlayed, ref int gamesWon)
@@ -429,6 +442,9 @@ namespace Game_Rock_Paper_Scissors
             int round = 1;
             int playerWon = 0;
             int computerWon = 0;
+            string[] playerWinArray = new string[4] { "    -   ", "    -   ", "    -   ", "    -   ", };
+            string[] playerChoiceArray = new string[4] { "    -   ", "    -   ", "    -   ", "    -   ", };
+            string[] computerChoiceArray = new string[4] { "    -   ", "    -   ", "    -   ", "    -   ", };
 
             while (round <=3 && playerWon != 2 && computerWon != 2)
             {
@@ -451,8 +467,12 @@ namespace Game_Rock_Paper_Scissors
                 {
                     case 1: //Player selected Rock
                         {
-                            if (computerWeapon == 1) //vs rock = draw
+                            playerChoiceArray[round] = "  Rock  ";
+
+                            if (computerWeapon == 1)
                             {
+                                computerChoiceArray[round] = "  Rock  ";
+                                playerWinArray[round] = "  DRAW  ";
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
@@ -461,8 +481,10 @@ namespace Game_Rock_Paper_Scissors
                                 round++;
 
                             }
-                            if (computerWeapon == 2) //vs paper = lose
+                            if (computerWeapon == 2)
                             {
+                                computerChoiceArray[round] = " Paper  ";
+                                playerWinArray[round] = "  LOSE  ";
                                 computerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
@@ -471,8 +493,10 @@ namespace Game_Rock_Paper_Scissors
                                 roundsPlayed++;
                                 round++;
                             }
-                            if (computerWeapon == 3) //vs cissors = win
+                            if (computerWeapon == 3)
                             {
+                                computerChoiceArray[round] = "Scissors";
+                                playerWinArray[round] = "  WIN!  ";
                                 playerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
@@ -486,8 +510,12 @@ namespace Game_Rock_Paper_Scissors
 
                     case 2: //Player selected Paper
                         {
-                            if (computerWeapon == 1) //vs rock = win
+                            playerChoiceArray[round] = " Paper  ";
+
+                            if (computerWeapon == 1)
                             {
+                                computerChoiceArray[round] = "  Rock  ";
+                                playerWinArray[round] = "  WIN!  ";
                                 playerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
@@ -497,8 +525,10 @@ namespace Game_Rock_Paper_Scissors
                                 round++;
 
                             }
-                            if (computerWeapon == 2) //vs paper = draw
+                            if (computerWeapon == 2)
                             {
+                                computerChoiceArray[round] = " Paper  ";
+                                playerWinArray[round] = "  DRAW  ";
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
@@ -506,8 +536,10 @@ namespace Game_Rock_Paper_Scissors
                                 roundsPlayed++;
                                 round++;
                             }
-                            if (computerWeapon == 3) //vs scissors = lose
+                            if (computerWeapon == 3)
                             {
+                                computerChoiceArray[round] = "Scissors";
+                                playerWinArray[round] = "  LOSE  ";
                                 computerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
@@ -521,8 +553,12 @@ namespace Game_Rock_Paper_Scissors
 
                     case 3: //Player selected Scissors
                         {
-                            if (computerWeapon == 1) //vs rock = lose
+                            playerChoiceArray[round] = "Scissors";
+
+                            if (computerWeapon == 1)
                             {
+                                computerChoiceArray[round] = "  Rock  ";
+                                playerWinArray[round] = "  LOSE  ";
                                 computerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
@@ -531,8 +567,10 @@ namespace Game_Rock_Paper_Scissors
                                 roundsPlayed++;
                                 round++;
                             }
-                            if (computerWeapon == 2) //vs paper = win
+                            if (computerWeapon == 2)
                             {
+                                computerChoiceArray[round] = "  Paper ";
+                                playerWinArray[round] = "  WIN!  ";
                                 playerWon++;
                                 Console.Clear();
                                 RoundLogo(round);
@@ -542,8 +580,10 @@ namespace Game_Rock_Paper_Scissors
                                 round++;
 
                             }
-                            if (computerWeapon == 3) //vs scissors = draw
+                            if (computerWeapon == 3)
                             {
+                                computerChoiceArray[round] = "Scissors";
+                                playerWinArray[round] = "  DRAW  ";
                                 Console.Clear();
                                 RoundLogo(round);
                                 RoundScoreBoard(playerName, playerWon, computerWon);
@@ -566,6 +606,7 @@ namespace Game_Rock_Paper_Scissors
                 YouWonLogo();
                 RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerWin(playerName);
+                OverallScoreBoard(playerName, playerWinArray, playerChoiceArray, computerChoiceArray);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
@@ -578,6 +619,7 @@ namespace Game_Rock_Paper_Scissors
                 GameOverLogo();
                 RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerLose(playerName);
+                OverallScoreBoard(playerName, playerWinArray, playerChoiceArray, computerChoiceArray);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
@@ -590,6 +632,7 @@ namespace Game_Rock_Paper_Scissors
                 YouLoseLogo();
                 RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerLose(playerName);
+                OverallScoreBoard(playerName, playerWinArray, playerChoiceArray, computerChoiceArray);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
