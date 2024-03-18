@@ -298,45 +298,6 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine();
             Console.Write("Press any key to continue...");
             Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine("After starting the game, you should pick one of three weapons.");
-            Console.WriteLine("By entering 1, 2 or 3 you will choose Rock, Paper or Scissors:");
-            Console.WriteLine();
-            RoundMenu();
-            Console.Write("Press any key to continue...");
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine("Then a battle takes place.");
-            Console.WriteLine("Depending on your choice and the computer's random generated choice, ");
-            Console.WriteLine("the winner of the round is determined.");
-            Console.WriteLine();
-            Console.WriteLine("The rules are simple:");
-            Console.WriteLine();
-            Console.WriteLine("'Rock' beats 'Scissors':");
-            GameGraphicCase(1, 3);
-            Console.WriteLine();
-            Console.WriteLine("'Scissors' beats 'Paper':");
-            GameGraphicCase(3, 2);
-            Console.WriteLine();
-            Console.WriteLine("'Paper' beats 'Rock':");
-            GameGraphicCase(2, 1);
-            Console.WriteLine();
-            Console.Write("Press any key to continue...");
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine("Your current score is displayed under Current Round:");
-            RoundLogo(3);
-            RoundScoreBoard("Player", 1, 1);
-            Console.WriteLine("The game lasts maximum 3 rounds or for 2 victories.");
-            Console.WriteLine();
-            YouWonLogo();
-            Console.WriteLine("You can play the game as many times as you want!");
-            Console.WriteLine("Also you can check your statistic in main menu or in the end of each game.");
-            PlayerStats("Player", 12, 25, 10);
-            Console.WriteLine("Good Luck! Have Fun!");
-            Console.WriteLine();
-            Console.Write("Press any key to exit tutorial...");
-            Console.ReadKey();
             return;
         }
         //Round menu
@@ -344,9 +305,13 @@ namespace Game_Rock_Paper_Scissors
         {
             Console.WriteLine("===============================================");
             Console.WriteLine("Choose your weapon:");
+            Console.WriteLine();
             Console.WriteLine("1. Rock");
+            Console.WriteLine();
             Console.WriteLine("2. Paper");
+            Console.WriteLine();
             Console.WriteLine("3. Scissors");
+            Console.WriteLine();
             Console.WriteLine("===============================================");
             Console.WriteLine();
         }
@@ -384,10 +349,15 @@ namespace Game_Rock_Paper_Scissors
         {
             Console.WriteLine("<<< Menu >>>");
             Console.WriteLine("===============================================");
+            Console.WriteLine();
             Console.WriteLine("1. New Game");
+            Console.WriteLine();
             Console.WriteLine("2. Tutorial");
+            Console.WriteLine();
             Console.WriteLine("3. Credits");
+            Console.WriteLine();
             Console.WriteLine("4. Exit");
+            Console.WriteLine();
         }
         //Game exit
         private static void GameExit(string playerName)
@@ -402,8 +372,6 @@ namespace Game_Rock_Paper_Scissors
             Console.ReadKey();
             Environment.Exit(0);
         }
-
-
 
         // AI
         private static int ComputerAi()
@@ -583,7 +551,6 @@ namespace Game_Rock_Paper_Scissors
                         }
                         break;
                 }
-                Console.WriteLine();
                 Console.Write("Press any key to continue...");
                 Console.ReadKey();
             }
