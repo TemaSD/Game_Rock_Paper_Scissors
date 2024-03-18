@@ -93,7 +93,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 1)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine("   'Rock'                              'Rock' ");
+                            Console.WriteLine("    Rock                                Rock  ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)                         (____   '-");
                             Console.WriteLine(@"    (_____)                       (_____)    ");
@@ -107,7 +107,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 2)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine("   'Rock'                              'Paper'");
+                            Console.WriteLine("    Rock                                Paper ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)                     ____(____   '-");
                             Console.WriteLine(@"    (_____)                   (______        ");
@@ -121,7 +121,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 3)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine("   'Rock'                           'Scissors'");
+                            Console.WriteLine("    Rock                             Scissors ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)                     ____(____   '-");
                             Console.WriteLine(@"    (_____)                   (______        ");
@@ -140,7 +140,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 1)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine("   'Paper'                              'Rock'");
+                            Console.WriteLine("    Paper                                Rock ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                     (____   '-");
                             Console.WriteLine(@"        ______)                   (_____)    ");
@@ -154,7 +154,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 2)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine("   'Paper'                             'Paper'");
+                            Console.WriteLine("    Paper                               Paper ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
@@ -168,7 +168,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 3)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine("   'Paper'                          'Scissors'");
+                            Console.WriteLine("    Paper                            Scissors ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
@@ -187,7 +187,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 1)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine(" 'Scissors'                             'Rock'");
+                            Console.WriteLine("  Scissors                               Rock ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                     (____   '-");
                             Console.WriteLine(@"        ______)                   (_____)    ");
@@ -201,7 +201,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 2)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine(" 'Scissors'                            'Paper'");
+                            Console.WriteLine("  Scissors                              Paper ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
@@ -215,7 +215,7 @@ namespace Game_Rock_Paper_Scissors
                         if (computerWeapon == 3)
                         {
                             Console.WriteLine("===============================================");
-                            Console.WriteLine(" 'Scissors'                         'Scissors'");
+                            Console.WriteLine("  Scissors                           Scissors ");
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
