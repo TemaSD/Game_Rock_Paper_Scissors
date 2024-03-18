@@ -205,7 +205,7 @@ namespace Game_Rock_Paper_Scissors
                             Console.WriteLine(@"  _______                           _______  ");
                             Console.WriteLine(@"-'   ____)____                 ____(____   '-");
                             Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"YOU   __________)    >WIN<    (______         ");
+                            Console.WriteLine(@"YOU  __________)    >WIN<    (______         ");
                             Console.WriteLine(@"    (____)                    (______        ");
                             Console.WriteLine(@"-.__(___)                       (__________.-");
                             Console.WriteLine();
@@ -300,21 +300,24 @@ namespace Game_Rock_Paper_Scissors
             Console.ReadKey();
             return;
         }
-        //Round menu
+
         private static void RoundMenu()
         {
             Console.WriteLine("===============================================");
-            Console.WriteLine("Choose your weapon:");
+            Console.WriteLine("           <<< Select Weapon >>>");
+            Console.WriteLine(@"  _______      _______           _______         ");
+            Console.WriteLine(@"-'   ____)   -'   ____)____    -'   ____)____    ");
+            Console.WriteLine(@"    (_____)          ______)           ______)   ");
+            Console.WriteLine(@"    (_____)           ______)       __________)  ");
+            Console.WriteLine(@"    (____)           ______)       (____)        ");
+            Console.WriteLine(@"-.__(___)    -.__________)     -.__(___)         ");
             Console.WriteLine();
-            Console.WriteLine("1. Rock");
-            Console.WriteLine();
-            Console.WriteLine("2. Paper");
-            Console.WriteLine();
-            Console.WriteLine("3. Scissors");
-            Console.WriteLine();
+            Console.WriteLine("===============================================");
+            Console.WriteLine(" 1. Rock          2. Paper          3.Scissors");
             Console.WriteLine("===============================================");
             Console.WriteLine();
         }
+
         //Credits
         private static void GameCredits()
         {
