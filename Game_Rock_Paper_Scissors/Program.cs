@@ -423,12 +423,18 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine();
         }
 
+        //WeaponSelectMenu
+        private static void WeaponSelectMenu()
+        {
+
+        }
+
         // After Game Score Board
         private static void OverallScoreBoard(string playerName, int playerWon, int computerWon, string[] playerWinArray, string[] playerChoiceArray, string[] computerChoiceArray)
         {
             Console.WriteLine();
-            Console.WriteLine("===============================================");
             Console.WriteLine($"            <{playerName}>  {playerWon} : {computerWon}   <Computer>");
+            Console.WriteLine("===============================================");
             Console.WriteLine();
             Console.WriteLine($"Round 1:   {playerChoiceArray[1]}   {playerWinArray[1]}   {computerChoiceArray[1]}");
             Console.WriteLine();
@@ -444,9 +450,9 @@ namespace Game_Rock_Paper_Scissors
             int round = 1;
             int playerWon = 0;
             int computerWon = 0;
-            string[] playerWinArray = new string[4] { "    -   ", "    -   ", "    -   ", "    -   ", };
-            string[] playerChoiceArray = new string[4] { "    -   ", "    -   ", "    -   ", "    -   ", };
-            string[] computerChoiceArray = new string[4] { "    -   ", "    -   ", "    -   ", "    -   ", };
+            string[] playerWinArray = new string[4] { "", "", "", "    -   ", };
+            string[] playerChoiceArray = new string[4] { "", "", "", "    -   ", };
+            string[] computerChoiceArray = new string[4] { "", "", "", "    -   ", };
 
             while (round <=3 && playerWon != 2 && computerWon != 2)
             {
@@ -464,6 +470,8 @@ namespace Game_Rock_Paper_Scissors
                     continue;
 
                 int computerWeapon = ComputerAi();
+
+                WeaponSelectMenu();
 
                 switch (playerWeapon)
                 {
