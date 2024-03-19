@@ -424,10 +424,11 @@ namespace Game_Rock_Paper_Scissors
         }
 
         // After Game Score Board
-        private static void OverallScoreBoard(string playerName, string[] playerWinArray, string[] playerChoiceArray, string[] computerChoiceArray)
+        private static void OverallScoreBoard(string playerName, int playerWon, int computerWon, string[] playerWinArray, string[] playerChoiceArray, string[] computerChoiceArray)
         {
+            Console.WriteLine();
             Console.WriteLine("===============================================");
-            Console.WriteLine($"           {playerName}                 Computer");
+            Console.WriteLine($"            <{playerName}>  {playerWon} : {computerWon}   <Computer>");
             Console.WriteLine();
             Console.WriteLine($"Round 1:   {playerChoiceArray[1]}   {playerWinArray[1]}   {computerChoiceArray[1]}");
             Console.WriteLine();
@@ -605,9 +606,8 @@ namespace Game_Rock_Paper_Scissors
                 gamesWon++;
                 Console.Clear();
                 YouWonLogo();
-                RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerWin(playerName);
-                OverallScoreBoard(playerName, playerWinArray, playerChoiceArray, computerChoiceArray);
+                OverallScoreBoard(playerName, playerWon, computerWon, playerWinArray, playerChoiceArray, computerChoiceArray);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
@@ -618,9 +618,8 @@ namespace Game_Rock_Paper_Scissors
             {
                 Console.Clear();
                 GameOverLogo();
-                RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerLose(playerName);
-                OverallScoreBoard(playerName, playerWinArray, playerChoiceArray, computerChoiceArray);
+                OverallScoreBoard(playerName, playerWon, computerWon, playerWinArray, playerChoiceArray, computerChoiceArray);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
@@ -631,9 +630,8 @@ namespace Game_Rock_Paper_Scissors
             {
                 Console.Clear();
                 YouLoseLogo();
-                RoundScoreBoard(playerName, playerWon, computerWon);
                 TextPlayerLose(playerName);
-                OverallScoreBoard(playerName, playerWinArray, playerChoiceArray, computerChoiceArray);
+                OverallScoreBoard(playerName, playerWon, computerWon, playerWinArray, playerChoiceArray, computerChoiceArray);
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
