@@ -135,7 +135,7 @@ namespace Game_Rock_Paper_Scissors
                     }
                     break;
 
-                case 2: //Player Papper
+                case 2: //Player
                     {
                         if (computerWeapon == 1)
                         {
@@ -239,6 +239,7 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine($"Welcome to the ROCK, PAPER, SCISSORS game!");
             Console.WriteLine("===============================================");
             Console.WriteLine("Rules:");
+            Console.WriteLine("* PEGI 12");
             Console.WriteLine("* The game lasts a maximum of three rounds");
             Console.WriteLine("* The winner must win more rounds than opponent");
             Console.WriteLine("* Each round you choose a weapon");
@@ -253,7 +254,7 @@ namespace Game_Rock_Paper_Scissors
             Console.Write("Enter your nickname: ");
             playerName = Console.ReadLine();
 
-            while (playerName.Length > 12)
+            while (playerName != null && playerName.Length > 12)
             {
                 Console.Write("Your name is too long! Enter a shorter nickname (12 symbols Max): ");
                 playerName = Console.ReadLine();
@@ -269,7 +270,6 @@ namespace Game_Rock_Paper_Scissors
             {
                 Console.Write("Enter your age: ");
                 int.TryParse(Console.ReadLine(), out playerAge);
-                continue;
             }
 
             if (playerAge < 12)
@@ -298,7 +298,6 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine();
             Console.Write("Press any key to continue...");
             Console.ReadKey();
-            return;
         }
 
         private static void RoundMenu()
@@ -379,9 +378,9 @@ namespace Game_Rock_Paper_Scissors
         // AI
         private static int ComputerAi()
         {
-            Random generator = new Random();
+            var generator = new Random();
 
-            int aiAnswer = generator.Next(1, 4);
+            var aiAnswer = generator.Next(1, 4);
 
             return aiAnswer;
         }
@@ -389,24 +388,24 @@ namespace Game_Rock_Paper_Scissors
         // Player Win Text
         private static void TextPlayerWin(string playerName)
         {
-            Random generator = new Random();
+            var generator = new Random();
 
-            int randomText = generator.Next(1, 4);
+            var randomText = generator.Next(1, 4);
 
             if (randomText == 1)
                 Console.WriteLine($"Congratulations, {playerName}, YOU WIN!");
             if (randomText == 2)
                 Console.WriteLine($"All Hail {playerName}! The WINNER!");
             if (randomText == 3)
-                Console.WriteLine($"Winner Winner Chiken Dinner!");
+                Console.WriteLine($"Winner Winner Chicken Dinner!");
         }
 
         // Player Lose Text
         private static void TextPlayerLose(string playerName)
         {
-            Random generator = new Random();
+            var generator = new Random();
 
-            int randomText = generator.Next(1, 4);
+            var randomText = generator.Next(1, 4);
 
             if (randomText == 1)
                 Console.WriteLine($"Sorry, {playerName}, you lose:( Don't give up!");
@@ -447,12 +446,12 @@ namespace Game_Rock_Paper_Scissors
         // Game
         private static void GameStart(string playerName, int playerAge, ref int roundsPlayed, ref int gamesWon)
         {
-            int round = 1;
-            int playerWon = 0;
-            int computerWon = 0;
-            string[] playerWinArray = new string[4] { "", "", "", "    -   ", };
-            string[] playerChoiceArray = new string[4] { "", "", "", "    -   ", };
-            string[] computerChoiceArray = new string[4] { "", "", "", "    -   ", };
+            var round = 1;
+            var playerWon = 0;
+            var computerWon = 0;
+            var playerWinArray = new[] { "", "", "", "    -   ", };
+            var playerChoiceArray = new[] { "", "", "", "    -   ", };
+            var computerChoiceArray = new[] { "", "", "", "    -   ", };
 
             while (round <=3 && playerWon != 2 && computerWon != 2)
             {
@@ -462,14 +461,12 @@ namespace Game_Rock_Paper_Scissors
                 RoundMenu();
                 Console.Write("Type 1, 2 or 3 to choose weapon, then press 'Enter': ");
 
-                int playerWeapon;
-
-                int.TryParse(Console.ReadLine(), out playerWeapon);
+                int.TryParse(Console.ReadLine(), out var playerWeapon);
 
                 if (playerWeapon > 3 || playerWeapon < 1)
                     continue;
 
-                int computerWeapon = ComputerAi();
+                var computerWeapon = ComputerAi();
 
                 WeaponSelectMenu();
 
@@ -620,7 +617,6 @@ namespace Game_Rock_Paper_Scissors
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
                 Console.ReadKey();
-                return;
             }
             else if (playerWon == computerWon)
             {
@@ -632,7 +628,6 @@ namespace Game_Rock_Paper_Scissors
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
                 Console.ReadKey();
-                return;
             }
             else
             {
@@ -644,7 +639,6 @@ namespace Game_Rock_Paper_Scissors
                 Console.WriteLine();
                 Console.Write("Press any key to continue...");
                 Console.ReadKey();
-                return;
             }
 
         }
@@ -656,10 +650,10 @@ namespace Game_Rock_Paper_Scissors
 
             WelcomeText();
 
-            string playerName = "Player";
-            int playerAge = 0;
-            int roundsPlayed = 0;
-            int gamesWon = 0;
+            var playerName = "Player";
+            var playerAge = 0;
+            var roundsPlayed = 0;
+            var gamesWon = 0;
 
             EnterYourName(ref playerName);
 
@@ -667,32 +661,27 @@ namespace Game_Rock_Paper_Scissors
 
             while (true)
             {
-                int menuSelect;
-
                 Console.Clear();
                 GameLogo();
                 GameMenuText();
                 PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
 
                 Console.Write("Type 1, 2, 3 or 4 to choose, then press 'Enter': ");
-                int.TryParse(Console.ReadLine(), out menuSelect);
+                int.TryParse(Console.ReadLine(), out var menuSelect);
 
                 if (menuSelect == 4) //Exit
                     break;
-                else if (menuSelect == 3) //Credits
+                if (menuSelect == 3) //Credits
                 {
                     GameCredits();
-                    continue;
                 }
                 else if (menuSelect == 2) //Tutorial
                 {
                     GameTutorial();
-                    continue;
                 }
                 else if (menuSelect == 1) //Play Game
                 {
                     GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
-                    continue;
                 }
                 else
                     continue;
