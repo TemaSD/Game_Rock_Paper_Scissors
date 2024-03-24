@@ -4,6 +4,54 @@ namespace Game_Rock_Paper_Scissors
 {
     class MainClass
     {
+        //Main
+        public static void Main(string[] args)
+        {
+            GameLogo();
+
+            WelcomeText();
+
+            var playerAge = 0;
+            var roundsPlayed = 0;
+            var gamesWon = 0;
+
+            EnterYourName(out var playerName);
+            
+
+            EnterYourAge(playerName, ref playerAge);
+
+            while (true)
+            {
+                Console.Clear();
+                GameLogo();
+                GameMenuText();
+                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
+
+                Console.Write("Type 1, 2, 3 or 4 to choose, then press 'Enter': ");
+                int.TryParse(Console.ReadLine(), out var menuSelect);
+
+                if (menuSelect == 4) //Exit
+                    break;
+                switch (menuSelect)
+                {
+                    //Play Game
+                    case 1:
+                        GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
+                        break;
+                    //Tutorial
+                    case 2:
+                        GameTutorial();
+                        break;
+                    //Credits
+                    case 3:
+                        GameCredits();
+                        break;
+                    default:
+                        continue;
+                }
+            }
+            GameExit(playerName);
+        }
         // Logo
         private static void GameLogo()
         {
@@ -34,32 +82,32 @@ namespace Game_Rock_Paper_Scissors
         // Round Graph
         private static void RoundLogo(int round)
         {
-            if (round == 1)
+            switch (round)
             {
-                Console.WriteLine(@"    ____                        __        ___");
-                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    <  /");
-                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   / / ");
-                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / /  ");
-                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /_/   ");
-                Console.WriteLine();
-            }
-            if (round == 2)
-            {
-                Console.WriteLine(@"    ____                        __        ___ ");
-                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__ \");
-                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   __/ /");
-                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / __/ ");
-                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/ ");
-                Console.WriteLine();
-            }
-            if (round == 3)
-            {
-                Console.WriteLine(@"    ____                        __        _____");
-                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__  /");
-                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)    /_ < ");
-                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     ___/ / ");
-                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/  ");
-                Console.WriteLine();
+                case 1:
+                    Console.WriteLine(@"    ____                        __        ___");
+                    Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    <  /");
+                    Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   / / ");
+                    Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / /  ");
+                    Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /_/   ");
+                    Console.WriteLine();
+                    break;
+                case 2:
+                    Console.WriteLine(@"    ____                        __        ___ ");
+                    Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__ \");
+                    Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   __/ /");
+                    Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / __/ ");
+                    Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/ ");
+                    Console.WriteLine();
+                    break;
+                case 3:
+                    Console.WriteLine(@"    ____                        __        _____");
+                    Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__  /");
+                    Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)    /_ < ");
+                    Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     ___/ / ");
+                    Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/  ");
+                    Console.WriteLine();
+                    break;
             }
         }
         // You Won Graph
@@ -90,141 +138,141 @@ namespace Game_Rock_Paper_Scissors
             {
                 case 1: //Player Rock
                     {
-                        if (computerWeapon == 1)
+                        switch (computerWeapon)
                         {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("    Rock                                Rock  ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)                         (____   '-");
-                            Console.WriteLine(@"    (_____)                       (_____)    ");
-                            Console.WriteLine(@"YOU (_____)        |DRAW|         (_____)    ");
-                            Console.WriteLine(@"    (____)                         (____)    ");
-                            Console.WriteLine(@"-.__(___)                           (___)__.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
-                        }
-                        if (computerWeapon == 2)
-                        {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("    Rock                                Paper ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)                     ____(____   '-");
-                            Console.WriteLine(@"    (_____)                   (______        ");
-                            Console.WriteLine(@"YOU (_____)       <LOSE>     (______         ");
-                            Console.WriteLine(@"    (____)                    (______        ");
-                            Console.WriteLine(@"-.__(___)                       (__________.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
-                        }
-                        if (computerWeapon == 3)
-                        {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("    Rock                             Scissors ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)                     ____(____   '-");
-                            Console.WriteLine(@"    (_____)                   (______        ");
-                            Console.WriteLine(@"YOU (_____)        >WIN<     (__________     ");
-                            Console.WriteLine(@"    (____)                         (____)    ");
-                            Console.WriteLine(@"-.__(___)                           (___)__.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
+                            case 1:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("    Rock                                Rock  ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)                         (____   '-");
+                                Console.WriteLine(@"    (_____)                       (_____)    ");
+                                Console.WriteLine(@"YOU (_____)        |DRAW|         (_____)    ");
+                                Console.WriteLine(@"    (____)                         (____)    ");
+                                Console.WriteLine(@"-.__(___)                           (___)__.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
+                            case 2:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("    Rock                                Paper ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)                     ____(____   '-");
+                                Console.WriteLine(@"    (_____)                   (______        ");
+                                Console.WriteLine(@"YOU (_____)       <LOSE>     (______         ");
+                                Console.WriteLine(@"    (____)                    (______        ");
+                                Console.WriteLine(@"-.__(___)                       (__________.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
+                            case 3:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("    Rock                             Scissors ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)                     ____(____   '-");
+                                Console.WriteLine(@"    (_____)                   (______        ");
+                                Console.WriteLine(@"YOU (_____)        >WIN<     (__________     ");
+                                Console.WriteLine(@"    (____)                         (____)    ");
+                                Console.WriteLine(@"-.__(___)                           (___)__.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
                         }
                     }
                     break;
 
                 case 2: //Player
                     {
-                        if (computerWeapon == 1)
+                        switch (computerWeapon)
                         {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("    Paper                                Rock ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)____                     (____   '-");
-                            Console.WriteLine(@"        ______)                   (_____)    ");
-                            Console.WriteLine(@"YOU      ______)     >WIN<        (_____)    ");
-                            Console.WriteLine(@"        ______)                    (____)    ");
-                            Console.WriteLine(@"-.__________)                       (___)__.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
-                        }
-                        if (computerWeapon == 2)
-                        {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("    Paper                               Paper ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)____                 ____(____   '-");
-                            Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"YOU      ______)    |DRAW|   (______         ");
-                            Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"-.__________)                   (__________.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
-                        }
-                        if (computerWeapon == 3)
-                        {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("    Paper                            Scissors ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)____                 ____(____   '-");
-                            Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"YOU      ______)    <LOSE>   (__________     ");
-                            Console.WriteLine(@"        ______)                    (____)    ");
-                            Console.WriteLine(@"-.__________)                       (___)__.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
+                            case 1:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("    Paper                                Rock ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)____                     (____   '-");
+                                Console.WriteLine(@"        ______)                   (_____)    ");
+                                Console.WriteLine(@"YOU      ______)     >WIN<        (_____)    ");
+                                Console.WriteLine(@"        ______)                    (____)    ");
+                                Console.WriteLine(@"-.__________)                       (___)__.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
+                            case 2:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("    Paper                               Paper ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)____                 ____(____   '-");
+                                Console.WriteLine(@"        ______)               (______        ");
+                                Console.WriteLine(@"YOU      ______)    |DRAW|   (______         ");
+                                Console.WriteLine(@"        ______)               (______        ");
+                                Console.WriteLine(@"-.__________)                   (__________.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
+                            case 3:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("    Paper                            Scissors ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)____                 ____(____   '-");
+                                Console.WriteLine(@"        ______)               (______        ");
+                                Console.WriteLine(@"YOU      ______)    <LOSE>   (__________     ");
+                                Console.WriteLine(@"        ______)                    (____)    ");
+                                Console.WriteLine(@"-.__________)                       (___)__.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
                         }
                     }
                     break;
 
                 case 3: //Player Scissors
                     {
-                        if (computerWeapon == 1)
+                        switch (computerWeapon)
                         {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("  Scissors                               Rock ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)____                     (____   '-");
-                            Console.WriteLine(@"        ______)                   (_____)    ");
-                            Console.WriteLine(@"YOU  __________)    <LOSE>        (_____)    ");
-                            Console.WriteLine(@"    (____)                         (____)    ");
-                            Console.WriteLine(@"-.__(___)                           (___)__.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
-                        }
-                        if (computerWeapon == 2)
-                        {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("  Scissors                              Paper ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)____                 ____(____   '-");
-                            Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"YOU  __________)    >WIN<    (______         ");
-                            Console.WriteLine(@"    (____)                    (______        ");
-                            Console.WriteLine(@"-.__(___)                       (__________.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
-                        }
-                        if (computerWeapon == 3)
-                        {
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine("  Scissors                           Scissors ");
-                            Console.WriteLine(@"  _______                           _______  ");
-                            Console.WriteLine(@"-'   ____)____                 ____(____   '-");
-                            Console.WriteLine(@"        ______)               (______        ");
-                            Console.WriteLine(@"YOU  __________)    |DRAW|   (__________     ");
-                            Console.WriteLine(@"    (____)                         (____)    ");
-                            Console.WriteLine(@"-.__(___)                           (___)__.-");
-                            Console.WriteLine();
-                            Console.WriteLine("===============================================");
-                            Console.WriteLine();
+                            case 1:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("  Scissors                               Rock ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)____                     (____   '-");
+                                Console.WriteLine(@"        ______)                   (_____)    ");
+                                Console.WriteLine(@"YOU  __________)    <LOSE>        (_____)    ");
+                                Console.WriteLine(@"    (____)                         (____)    ");
+                                Console.WriteLine(@"-.__(___)                           (___)__.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
+                            case 2:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("  Scissors                              Paper ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)____                 ____(____   '-");
+                                Console.WriteLine(@"        ______)               (______        ");
+                                Console.WriteLine(@"YOU  __________)    >WIN<    (______         ");
+                                Console.WriteLine(@"    (____)                    (______        ");
+                                Console.WriteLine(@"-.__(___)                       (__________.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
+                            case 3:
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine("  Scissors                           Scissors ");
+                                Console.WriteLine(@"  _______                           _______  ");
+                                Console.WriteLine(@"-'   ____)____                 ____(____   '-");
+                                Console.WriteLine(@"        ______)               (______        ");
+                                Console.WriteLine(@"YOU  __________)    |DRAW|   (__________     ");
+                                Console.WriteLine(@"    (____)                         (____)    ");
+                                Console.WriteLine(@"-.__(___)                           (___)__.-");
+                                Console.WriteLine();
+                                Console.WriteLine("===============================================");
+                                Console.WriteLine();
+                                break;
                         }
                     }
                     break;
@@ -249,18 +297,14 @@ namespace Game_Rock_Paper_Scissors
         }
 
         //Player Name Enter
-        private static void EnterYourName(ref string playerName)
+        private static void EnterYourName(out string playerName)
         {
-            Console.Write("Enter your nickname: ");
-            playerName = Console.ReadLine();
-
-            while (playerName != null && playerName.Length > 12)
+            playerName = null;
+            while (string.IsNullOrEmpty(playerName) || playerName.Length > 12)
             {
-                Console.Write("Your name is too long! Enter a shorter nickname (12 symbols Max): ");
+                Console.Write("Enter your nickname (12 symbols max): ");
                 playerName = Console.ReadLine();
             }
-            if (playerName == "")
-                playerName = "Player";
         }
 
         // Enter Your Age
@@ -468,41 +512,40 @@ namespace Game_Rock_Paper_Scissors
                         {
                             playerChoiceArray[round] = "  Rock  ";
 
-                            if (computerWeapon == 1)
+                            switch (computerWeapon)
                             {
-                                computerChoiceArray[round] = "  Rock  ";
-                                playerWinArray[round] = "  DRAW  ";
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
-
-                            }
-                            if (computerWeapon == 2)
-                            {
-                                computerChoiceArray[round] = " Paper  ";
-                                playerWinArray[round] = "  LOSE  ";
-                                computerWon++;
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
-                            }
-                            if (computerWeapon == 3)
-                            {
-                                computerChoiceArray[round] = "Scissors";
-                                playerWinArray[round] = " >WIN!< ";
-                                playerWon++;
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
+                                case 1:
+                                    computerChoiceArray[round] = "  Rock  ";
+                                    playerWinArray[round] = "  DRAW  ";
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
+                                case 2:
+                                    computerChoiceArray[round] = " Paper  ";
+                                    playerWinArray[round] = "  LOSE  ";
+                                    computerWon++;
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
+                                case 3:
+                                    computerChoiceArray[round] = "Scissors";
+                                    playerWinArray[round] = " >WIN!< ";
+                                    playerWon++;
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
                             }
                         }
                         break;
@@ -511,41 +554,40 @@ namespace Game_Rock_Paper_Scissors
                         {
                             playerChoiceArray[round] = " Paper  ";
 
-                            if (computerWeapon == 1)
+                            switch (computerWeapon)
                             {
-                                computerChoiceArray[round] = "  Rock  ";
-                                playerWinArray[round] = " >WIN!< ";
-                                playerWon++;
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
-
-                            }
-                            if (computerWeapon == 2)
-                            {
-                                computerChoiceArray[round] = " Paper  ";
-                                playerWinArray[round] = "  DRAW  ";
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
-                            }
-                            if (computerWeapon == 3)
-                            {
-                                computerChoiceArray[round] = "Scissors";
-                                playerWinArray[round] = "  LOSE  ";
-                                computerWon++;
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
+                                case 1:
+                                    computerChoiceArray[round] = "  Rock  ";
+                                    playerWinArray[round] = " >WIN!< ";
+                                    playerWon++;
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
+                                case 2:
+                                    computerChoiceArray[round] = " Paper  ";
+                                    playerWinArray[round] = "  DRAW  ";
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
+                                case 3:
+                                    computerChoiceArray[round] = "Scissors";
+                                    playerWinArray[round] = "  LOSE  ";
+                                    computerWon++;
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
                             }
                         }
                         break;
@@ -554,41 +596,40 @@ namespace Game_Rock_Paper_Scissors
                         {
                             playerChoiceArray[round] = "Scissors";
 
-                            if (computerWeapon == 1)
+                            switch (computerWeapon)
                             {
-                                computerChoiceArray[round] = "  Rock  ";
-                                playerWinArray[round] = "  LOSE  ";
-                                computerWon++;
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
-                            }
-                            if (computerWeapon == 2)
-                            {
-                                computerChoiceArray[round] = "  Paper ";
-                                playerWinArray[round] = " >WIN!< ";
-                                playerWon++;
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
-
-                            }
-                            if (computerWeapon == 3)
-                            {
-                                computerChoiceArray[round] = "Scissors";
-                                playerWinArray[round] = "  DRAW  ";
-                                Console.Clear();
-                                RoundLogo(round);
-                                RoundScoreBoard(playerName, playerWon, computerWon);
-                                GameGraphicCase(playerWeapon, computerWeapon);
-                                roundsPlayed++;
-                                round++;
+                                case 1:
+                                    computerChoiceArray[round] = "  Rock  ";
+                                    playerWinArray[round] = "  LOSE  ";
+                                    computerWon++;
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
+                                case 2:
+                                    computerChoiceArray[round] = "  Paper ";
+                                    playerWinArray[round] = " >WIN!< ";
+                                    playerWon++;
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
+                                case 3:
+                                    computerChoiceArray[round] = "Scissors";
+                                    playerWinArray[round] = "  DRAW  ";
+                                    Console.Clear();
+                                    RoundLogo(round);
+                                    RoundScoreBoard(playerName, playerWon, computerWon);
+                                    GameGraphicCase(playerWeapon, computerWeapon);
+                                    roundsPlayed++;
+                                    round++;
+                                    break;
                             }
                         }
                         break;
@@ -632,54 +673,6 @@ namespace Game_Rock_Paper_Scissors
                 Console.Write("Press any key to continue...");
                 Console.ReadKey();
             }
-
-        }
-
-        //Main
-        public static void Main(string[] args)
-        {
-            GameLogo();
-
-            WelcomeText();
-
-            var playerName = "Player";
-            var playerAge = 0;
-            var roundsPlayed = 0;
-            var gamesWon = 0;
-
-            EnterYourName(ref playerName);
-
-            EnterYourAge(playerName, ref playerAge);
-
-            while (true)
-            {
-                Console.Clear();
-                GameLogo();
-                GameMenuText();
-                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
-
-                Console.Write("Type 1, 2, 3 or 4 to choose, then press 'Enter': ");
-                int.TryParse(Console.ReadLine(), out var menuSelect);
-
-                if (menuSelect == 4) //Exit
-                    break;
-                if (menuSelect == 3) //Credits
-                {
-                    GameCredits();
-                }
-                else if (menuSelect == 2) //Tutorial
-                {
-                    GameTutorial();
-                }
-                else if (menuSelect == 1) //Play Game
-                {
-                    GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
-                }
-                else
-                    continue;
-            }
-
-            GameExit(playerName);
         }
     }
 }
