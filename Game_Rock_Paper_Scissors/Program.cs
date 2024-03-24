@@ -4,6 +4,54 @@ namespace Game_Rock_Paper_Scissors
 {
     class MainClass
     {
+        //Main
+        public static void Main(string[] args)
+        {
+            GameLogo();
+
+            WelcomeText();
+
+            var playerAge = 0;
+            var roundsPlayed = 0;
+            var gamesWon = 0;
+
+            EnterYourName(out var playerName);
+            
+
+            EnterYourAge(playerName, ref playerAge);
+
+            while (true)
+            {
+                Console.Clear();
+                GameLogo();
+                GameMenuText();
+                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
+
+                Console.Write("Type 1, 2, 3 or 4 to choose, then press 'Enter': ");
+                int.TryParse(Console.ReadLine(), out var menuSelect);
+
+                if (menuSelect == 4) //Exit
+                    break;
+                switch (menuSelect)
+                {
+                    //Play Game
+                    case 1:
+                        GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
+                        break;
+                    //Tutorial
+                    case 2:
+                        GameTutorial();
+                        break;
+                    //Credits
+                    case 3:
+                        GameCredits();
+                        break;
+                    default:
+                        continue;
+                }
+            }
+            GameExit(playerName);
+        }
         // Logo
         private static void GameLogo()
         {
@@ -34,32 +82,32 @@ namespace Game_Rock_Paper_Scissors
         // Round Graph
         private static void RoundLogo(int round)
         {
-            if (round == 1)
+            switch (round)
             {
-                Console.WriteLine(@"    ____                        __        ___");
-                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    <  /");
-                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   / / ");
-                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / /  ");
-                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /_/   ");
-                Console.WriteLine();
-            }
-            if (round == 2)
-            {
-                Console.WriteLine(@"    ____                        __        ___ ");
-                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__ \");
-                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   __/ /");
-                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / __/ ");
-                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/ ");
-                Console.WriteLine();
-            }
-            if (round == 3)
-            {
-                Console.WriteLine(@"    ____                        __        _____");
-                Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__  /");
-                Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)    /_ < ");
-                Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     ___/ / ");
-                Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/  ");
-                Console.WriteLine();
+                case 1:
+                    Console.WriteLine(@"    ____                        __        ___");
+                    Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    <  /");
+                    Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   / / ");
+                    Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / /  ");
+                    Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /_/   ");
+                    Console.WriteLine();
+                    break;
+                case 2:
+                    Console.WriteLine(@"    ____                        __        ___ ");
+                    Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__ \");
+                    Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)   __/ /");
+                    Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     / __/ ");
+                    Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/ ");
+                    Console.WriteLine();
+                    break;
+                case 3:
+                    Console.WriteLine(@"    ____                        __        _____");
+                    Console.WriteLine(@"   / __ \____  __  ______  ____/ /  _    |__  /");
+                    Console.WriteLine(@"  / /_/ / __ \/ / / / __ \/ __  /  (_)    /_ < ");
+                    Console.WriteLine(@" / _, _/ /_/ / /_/ / / / / /_/ /  _     ___/ / ");
+                    Console.WriteLine(@"/_/ |_|\____/\__,_/_/ /_/\__,_/  (_)   /____/  ");
+                    Console.WriteLine();
+                    break;
             }
         }
         // You Won Graph
@@ -249,18 +297,14 @@ namespace Game_Rock_Paper_Scissors
         }
 
         //Player Name Enter
-        private static void EnterYourName(ref string playerName)
+        private static void EnterYourName(out string playerName)
         {
-            Console.Write("Enter your nickname: ");
-            playerName = Console.ReadLine();
-
-            while (playerName != null && playerName.Length > 12)
+            playerName = null;
+            while (string.IsNullOrEmpty(playerName) || playerName.Length > 12)
             {
-                Console.Write("Your name is too long! Enter a shorter nickname (12 symbols Max): ");
+                Console.Write("Enter your nickname (12 symbols max): ");
                 playerName = Console.ReadLine();
             }
-            if (playerName == "")
-                playerName = "Player";
         }
 
         // Enter Your Age
@@ -629,56 +673,6 @@ namespace Game_Rock_Paper_Scissors
                 Console.Write("Press any key to continue...");
                 Console.ReadKey();
             }
-
-        }
-
-        //Main
-        public static void Main(string[] args)
-        {
-            GameLogo();
-
-            WelcomeText();
-
-            var playerName = "Player";
-            var playerAge = 0;
-            var roundsPlayed = 0;
-            var gamesWon = 0;
-
-            EnterYourName(ref playerName);
-
-            EnterYourAge(playerName, ref playerAge);
-
-            while (true)
-            {
-                Console.Clear();
-                GameLogo();
-                GameMenuText();
-                PlayerStats(playerName, playerAge, roundsPlayed, gamesWon);
-
-                Console.Write("Type 1, 2, 3 or 4 to choose, then press 'Enter': ");
-                int.TryParse(Console.ReadLine(), out var menuSelect);
-
-                if (menuSelect == 4) //Exit
-                    break;
-                switch (menuSelect)
-                {
-                    //Play Game
-                    case 1:
-                        GameStart(playerName, playerAge, ref roundsPlayed, ref gamesWon);
-                        break;
-                    //Tutorial
-                    case 2:
-                        GameTutorial();
-                        break;
-                    //Credits
-                    case 3:
-                        GameCredits();
-                        break;
-                    default:
-                        continue;
-                }
-            }
-            GameExit(playerName);
         }
     }
 }
