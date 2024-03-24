@@ -421,13 +421,7 @@ namespace Game_Rock_Paper_Scissors
             Console.WriteLine($"<<< {playerName} {playerWon} : {computerWon} Computer >>>");
             Console.WriteLine();
         }
-
-        //WeaponSelectMenu
-        private static void WeaponSelectMenu()
-        {
-
-        }
-
+        
         // After Game Score Board
         private static void OverallScoreBoard(string playerName, int playerWon, int computerWon, string[] playerWinArray, string[] playerChoiceArray, string[] computerChoiceArray)
         {
@@ -467,9 +461,7 @@ namespace Game_Rock_Paper_Scissors
                     continue;
 
                 var computerWeapon = ComputerAi();
-
-                WeaponSelectMenu();
-
+                
                 switch (playerWeapon)
                 {
                     case 1: //Player selected Rock
@@ -686,7 +678,6 @@ namespace Game_Rock_Paper_Scissors
                         continue;
                 }
             }
-
             GameExit(playerName);
         }
     }
